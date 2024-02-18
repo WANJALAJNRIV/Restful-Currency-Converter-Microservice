@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Conversion Microservice Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      #response {
+        white-space: pre-line;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Form Interface for POST, PUT & DELETE</h1>
+
+    <form id="conversionForm">
+      <label>Action:</label>
+      <input type="radio" id="postRadio" name="action" value="post" />
+      <label for="postRadio">POST</label>
+
+      <input type="radio" id="putRadio" name="action" value="put" />
+      <label for="putRadio">PUT</label>
+
+      <input type="radio" id="deleteRadio" name="action" value="del" />
+      <label for="deleteRadio">DELETE</label>
+
+      <br />
+
+      <label for="cur">Currency:</label>
+      <select id="cur" name="cur">
+        <option>Select currency code</option>
+        <option value="AUD">Australian Dollar</option>
+        <option value="BRL">Brazilian Real</option>
+        <option value="CAD">Canada Dollar</option>
+        <option value="CHF">Swiss Franc</option>
+        <option value="CNY">Chinese Yuan Renminbi</option>
+        <option value="DKK">Danish Krone</option>
+        <option value="EUR">Euro</option>
+        <option value="GBP">Pound Sterling (reference currency)</option>
+        <option value="HKD">Hong Kong Dollar</option>
+        <option value="HUF">Hungarian Forint</option>
+        <option value="INR">Indian Rupee</option>
+        <option value="JPY">Japanese Yen</option>
+        <option value="MXN">Mexican Peso</option>
+        <option value="MYR">Malaysian Ringgit</option>
+        <option value="NOK">Norwegian Krone</option>
+        <option value="NZD">New Zealand Dollar</option>
+        <option value="PHP">Philippine Peso</option>
+        <option value="RUB">Russian Ruble</option>
+        <option value="SEK">Swedish Krona</option>
+        <option value="SGD">Singapore Dollar</option>
+        <option value="THB">Thai Baht</option>
+        <option value="TRY">Turkish Lira</option>
+        <option value="USD">US Dollar</option>
+        <option value="ZAR">South African Rand</option>
+      </select>
+
+      <button type="button" onclick="performAction()">Submit</button>
+    </form>
+
+    <div>
+      <label for="response">RESPONSE XML:</label>
+      <textarea id="response" rows="10" cols="50" readonly></textarea>
+    </div>
+
+    <script>
+      function performAction() {
+        var form = document.getElementById("conversionForm");
+        var formData = new FormData(form);
+
+        var xhr = new XMLHttpRequest();
+        var action = getSelectedAction();
+
+        // Specify the HTTP method based on the selected action
+        var method = "";
+        switch (action) {
+          case "post":
+            method = "POST";
+            break;
+          case "put":
+            method = "PUT";
+            break;
+          case "del":
+            method = "DELETE";
+            break;
+          default:
+            break;
+        }
+
+        xhr.open(
+          method,
+          "http://localhost/atwd1/assignment/?" +
+            new URLSearchParams(formData).toString(),
+          true
+        );
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("response").innerText = xhr.responseText;
+          }
+        };
+        console.log(xhr);
+        xhr.send();
+      }
+
+      function getSelectedAction() {
+        var radio = document.getElementsByName("action");
+        for (var i = 0; i < radio.length; i++) {
+          if (radio[i].checked) {
+            return radio[i].value;
+          }
+        }
+        return "";
+      }
+    </script>
+  </body>
+</html>

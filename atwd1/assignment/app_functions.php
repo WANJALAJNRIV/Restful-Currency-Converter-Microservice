@@ -331,6 +331,7 @@ function createCurrency($currencyCode)
 
     $existingCurrencies = $xml->CcyTbl->CcyNtry;
 
+
     foreach ($existingCurrencies as $existingCurrency) {
         // Check if the currency code matches
         if ($existingCurrency->Ccy == $currencyCode) {
@@ -462,13 +463,17 @@ function updateCurrency($currencyCode)
     }
 }
 
-
-
 function deleteCurrency($currencyCode)
 {
     // Load XML file
-    $xmlString = file_get_contents('./currency_list.xml');
+    $xmlFilePath = './currency_list.xml';
+    $xmlString = file_get_contents($xmlFilePath);
     $xml = simplexml_load_string($xmlString);
+
+    if ($xml === false) {
+        // Handle the error, e.g., the XML is not well-formed
+        return '<error>Failed loading XML</error>';
+    }
 
     // Find the currency node to delete
     $currencyNode = $xml->xpath("//CcyNtry[Ccy = '$currencyCode']");
@@ -479,8 +484,7 @@ function deleteCurrency($currencyCode)
         $dom->parentNode->removeChild($dom);
 
         // Save the updated XML file
-        $xml->asXML('./currency_list.xml');
-
+        $xml->asXML($xmlFilePath);
 
         // Construct the XML response
         $responseXML = new SimpleXMLElement('<action></action>');

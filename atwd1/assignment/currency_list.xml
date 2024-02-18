@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ISO_4217 Pblshd="2024-01-01">
     <CcyTbl>
         <CcyNtry>
@@ -8,7 +9,7 @@
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
         <CcyNtry>
-            <CtryNm>ÅLAND ISLANDS</CtryNm>
+            <CtryNm>&#xC5;LAND ISLANDS</CtryNm>
             <CcyNm>Euro</CcyNm>
             <Ccy>EUR</Ccy>
             <CcyNbr>978</CcyNbr>
@@ -88,13 +89,7 @@
             <CcyNbr>533</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
-        <CcyNtry>
-            <CtryNm>AUSTRALIA</CtryNm>
-            <CcyNm>Australian Dollar</CcyNm>
-            <Ccy>AUD</Ccy>
-            <CcyNbr>036</CcyNbr>
-            <CcyMnrUnts>2</CcyMnrUnts>
-        </CcyNtry>
+        
         <CcyNtry>
             <CtryNm>AUSTRIA</CtryNm>
             <CcyNm>Euro</CcyNm>
@@ -340,20 +335,8 @@
             <CcyNbr>156</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
-        <CcyNtry>
-            <CtryNm>CHRISTMAS ISLAND</CtryNm>
-            <CcyNm>Australian Dollar</CcyNm>
-            <Ccy>AUD</Ccy>
-            <CcyNbr>036</CcyNbr>
-            <CcyMnrUnts>2</CcyMnrUnts>
-        </CcyNtry>
-        <CcyNtry>
-            <CtryNm>COCOS (KEELING) ISLANDS (THE)</CtryNm>
-            <CcyNm>Australian Dollar</CcyNm>
-            <Ccy>AUD</Ccy>
-            <CcyNbr>036</CcyNbr>
-            <CcyMnrUnts>2</CcyMnrUnts>
-        </CcyNtry>
+        
+        
         <CcyNtry>
             <CtryNm>COLOMBIA</CtryNm>
             <CcyNm>Colombian Peso</CcyNm>
@@ -404,7 +387,7 @@
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
         <CcyNtry>
-            <CtryNm>CÔTE D'IVOIRE</CtryNm>
+            <CtryNm>C&#xD4;TE D'IVOIRE</CtryNm>
             <CcyNm>CFA Franc BCEAO</CcyNm>
             <Ccy>XOF</Ccy>
             <CcyNbr>952</CcyNbr>
@@ -432,7 +415,7 @@
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
         <CcyNtry>
-            <CtryNm>CURAÇAO</CtryNm>
+            <CtryNm>CURA&#xC7;AO</CtryNm>
             <CcyNm>Netherlands Antillean Guilder</CcyNm>
             <Ccy>ANG</Ccy>
             <CcyNbr>532</CcyNbr>
@@ -732,13 +715,7 @@
             <CcyNbr>840</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
-        <CcyNtry>
-            <CtryNm>HEARD ISLAND AND McDONALD ISLANDS</CtryNm>
-            <CcyNm>Australian Dollar</CcyNm>
-            <Ccy>AUD</Ccy>
-            <CcyNbr>036</CcyNbr>
-            <CcyMnrUnts>2</CcyMnrUnts>
-        </CcyNtry>
+        
         <CcyNtry>
             <CtryNm>HOLY SEE (THE)</CtryNm>
             <CcyNm>Euro</CcyNm>
@@ -879,15 +856,9 @@
             <CcyNbr>404</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
+        
         <CcyNtry>
-            <CtryNm>KIRIBATI</CtryNm>
-            <CcyNm>Australian Dollar</CcyNm>
-            <Ccy>AUD</Ccy>
-            <CcyNbr>036</CcyNbr>
-            <CcyMnrUnts>2</CcyMnrUnts>
-        </CcyNtry>
-        <CcyNtry>
-            <CtryNm>KOREA (THE DEMOCRATIC PEOPLE’S REPUBLIC OF)</CtryNm>
+            <CtryNm>KOREA (THE DEMOCRATIC PEOPLE&#x2019;S REPUBLIC OF)</CtryNm>
             <CcyNm>North Korean Won</CcyNm>
             <Ccy>KPW</Ccy>
             <CcyNbr>408</CcyNbr>
@@ -915,7 +886,7 @@
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
         <CcyNtry>
-            <CtryNm>LAO PEOPLE’S DEMOCRATIC REPUBLIC (THE)</CtryNm>
+            <CtryNm>LAO PEOPLE&#x2019;S DEMOCRATIC REPUBLIC (THE)</CtryNm>
             <CcyNm>Lao Kip</CcyNm>
             <Ccy>LAK</Ccy>
             <CcyNbr>418</CcyNbr>
@@ -1173,13 +1144,7 @@
             <CcyNbr>710</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
-        <CcyNtry>
-            <CtryNm>NAURU</CtryNm>
-            <CcyNm>Australian Dollar</CcyNm>
-            <Ccy>AUD</Ccy>
-            <CcyNbr>036</CcyNbr>
-            <CcyMnrUnts>2</CcyMnrUnts>
-        </CcyNtry>
+        
         <CcyNtry>
             <CtryNm>NEPAL</CtryNm>
             <CcyNm>Nepalese Rupee</CcyNm>
@@ -1236,13 +1201,7 @@
             <CcyNbr>554</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
-        <CcyNtry>
-            <CtryNm>NORFOLK ISLAND</CtryNm>
-            <CcyNm>Australian Dollar</CcyNm>
-            <Ccy>AUD</Ccy>
-            <CcyNbr>036</CcyNbr>
-            <CcyMnrUnts>2</CcyMnrUnts>
-        </CcyNtry>
+        
         <CcyNtry>
             <CtryNm>NORTHERN MARIANA ISLANDS (THE)</CtryNm>
             <CcyNm>US Dollar</CcyNm>
@@ -1360,7 +1319,7 @@
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
         <CcyNtry>
-            <CtryNm>RÉUNION</CtryNm>
+            <CtryNm>R&#xC9;UNION</CtryNm>
             <CcyNm>Euro</CcyNm>
             <Ccy>EUR</Ccy>
             <CcyNbr>978</CcyNbr>
@@ -1388,7 +1347,7 @@
             <CcyMnrUnts>0</CcyMnrUnts>
         </CcyNtry>
         <CcyNtry>
-            <CtryNm>SAINT BARTHÉLEMY</CtryNm>
+            <CtryNm>SAINT BARTH&#xC9;LEMY</CtryNm>
             <CcyNm>Euro</CcyNm>
             <Ccy>EUR</Ccy>
             <CcyNbr>978</CcyNbr>
@@ -1680,7 +1639,7 @@
         </CcyNtry>
         <CcyNtry>
             <CtryNm>TONGA</CtryNm>
-            <CcyNm>Pa’anga</CcyNm>
+            <CcyNm>Pa&#x2019;anga</CcyNm>
             <Ccy>TOP</Ccy>
             <CcyNbr>776</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
@@ -1700,7 +1659,7 @@
             <CcyMnrUnts>3</CcyMnrUnts>
         </CcyNtry>
         <CcyNtry>
-            <CtryNm>TÜRKİYE</CtryNm>
+            <CtryNm>T&#xDC;RK&#x130;YE</CtryNm>
             <CcyNm>Turkish Lira</CcyNm>
             <Ccy>TRY</Ccy>
             <CcyNbr>949</CcyNbr>
@@ -1720,13 +1679,7 @@
             <CcyNbr>840</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
-        <CcyNtry>
-            <CtryNm>TUVALU</CtryNm>
-            <CcyNm>Australian Dollar</CcyNm>
-            <Ccy>AUD</Ccy>
-            <CcyNbr>036</CcyNbr>
-            <CcyMnrUnts>2</CcyMnrUnts>
-        </CcyNtry>
+        
         <CcyNtry>
             <CtryNm>UGANDA</CtryNm>
             <CcyNm>Uganda Shilling</CcyNm>
@@ -1813,14 +1766,14 @@
         </CcyNtry>
         <CcyNtry>
             <CtryNm>VENEZUELA (BOLIVARIAN REPUBLIC OF)</CtryNm>
-            <CcyNm>Bolívar Soberano</CcyNm>
+            <CcyNm>Bol&#xED;var Soberano</CcyNm>
             <Ccy>VES</Ccy>
             <CcyNbr>928</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>
         </CcyNtry>
         <CcyNtry>
             <CtryNm>VENEZUELA (BOLIVARIAN REPUBLIC OF)</CtryNm>
-            <CcyNm>Bolívar Soberano</CcyNm>
+            <CcyNm>Bol&#xED;var Soberano</CcyNm>
             <Ccy>VED</Ccy>
             <CcyNbr>926</CcyNbr>
             <CcyMnrUnts>2</CcyMnrUnts>

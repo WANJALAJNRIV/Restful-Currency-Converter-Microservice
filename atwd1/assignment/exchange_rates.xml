@@ -93,4 +93,73 @@
             <RequestTime>1970-01-01 00:00:00</RequestTime>
         </Rate>
     </ExchangeRates>
-<ExchangeRates><BaseCurrency>KES</BaseCurrency><Rate><Currency>EUR</Currency><Value>0.85</Value><RequestTime>1970-01-01 00:00:00</RequestTime></Rate><Rate><Currency>GBP</Currency><Value>0.73</Value><RequestTime>1970-01-01 00:00:00</RequestTime></Rate><Rate><Currency>JPY</Currency><Value>109.23</Value><RequestTime>1970-01-01 00:00:00</RequestTime></Rate><Rate><Currency>AUD</Currency><Value>1.36</Value><RequestTime>1970-01-01 00:00:00</RequestTime></Rate></ExchangeRates></Rates>
+    <ExchangeRates>
+        <BaseCurrency>KES</BaseCurrency>
+        <Rate>
+            <Currency>EUR</Currency>
+            <Value>0.85</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>GBP</Currency>
+            <Value>0.73</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>JPY</Currency>
+            <Value>109.23</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>AUD</Currency>
+            <Value>1.36</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+    </ExchangeRates>
+    <ExchangeRates>
+        <BaseCurrency>AUD</BaseCurrency>
+        <Rate>
+            <Currency>EUR</Currency>
+            <Value>0.85</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>GBP</Currency>
+            <Value>0.73</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>JPY</Currency>
+            <Value>109.23</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>AUD</Currency>
+            <Value>1.36</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+    </ExchangeRates>
+    <ExchangeRates>
+        <BaseCurrency>BRL</BaseCurrency>
+        <Rate>
+            <Currency>EUR</Currency>
+            <Value>0.85</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>GBP</Currency>
+            <Value>0.73</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>JPY</Currency>
+            <Value>109.23</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+        <Rate>
+            <Currency>AUD</Currency>
+            <Value>1.36</Value>
+            <RequestTime>1970-01-01 00:00:00</RequestTime>
+        </Rate>
+    </ExchangeRates>
+</Rates>

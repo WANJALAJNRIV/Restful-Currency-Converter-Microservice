@@ -14,27 +14,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $from = isset($_GET['from']) ? $_GET['from'] : '';
     $to = isset($_GET['to']) ? $_GET['to'] : '';
     $amnt = isset($_GET['amnt']) ? $_GET['amnt'] : '';
-    $format = isset($_GET['format']) ? $_GET['format'] : 'xml';
+    $format = isset($_GET['format']) ? $_GET['format'] : '';
 
     // Validate parameters and perform currency conversion logic
     $result = convertCurrency($from, $to, $amnt, $format);
 
     if (is_array($result) || is_object($result)) {
-        print_r($result);
         // Return response based on format
         if ($format === 'json') {
+
             header('Content-Type: application/json');
-           
-            echo json_encode($result, JSON_PRETTY_PRINT);
+            echo $result;
         } else {
             header('Content-Type: application/xml');
             echo arrayToXml($result);
         }
     } else {
-        header('Content-Type: application/xml');
-        $xml = simplexml_load_string($result);
-        echo $xml;
-        echo $result;
+        if ($format == "json") {
+            header('Content-Type: application/json');
+            $jsonResult = json_encode(['conv' => $result], JSON_PRETTY_PRINT);
+            echo $jsonResult;
+
+        } elseif ($format == "xml") {
+            header('Content-Type: application/xml');
+            $xml = simplexml_load_string($result);
+            echo $result;
+        } else {
+            echo $result;
+        }
     }
 }
 

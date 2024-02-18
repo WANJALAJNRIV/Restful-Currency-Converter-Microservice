@@ -1,0 +1,55 @@
+Description of the PHP Currency Converter App:
+
+Prerequisites:
+
+PHP Installed: Ensure you have PHP installed on your system.
+Web Server: A basic web server like Apache or use PHP's built-in server.
+
+Running using PHP's built-in server:
+open the terminal
+change the directory to be assignment directory where the index.php is located.
+run using "php -S localhost:80"
+
+
+App Structure:
+Files:
+
+index.php: The main entry point for the app.
+app_functions.php: Contains functions for CRUD operations on currency data and exchange rates.
+currency_list.xml: XML file storing the list of currencies.
+exchange_rates.xml: XML file storing exchange rates.
+Endpoints:
+
+GET /: Landing page with basic information about the app.
+POST /createCurrency: Creates a new currency in the currency list.
+POST /updateCurrency: Updates exchange rates for a specified base currency.
+DELETE /deleteCurrency: Deletes a currency from the currency list.
+Running the App:
+
+Open a terminal and navigate to the app directory.
+Start the PHP built-in server: php -S localhost:80
+Access the app in your browser: http://localhost
+App Workflow:
+
+Creating Currency:
+
+Make a POST request to /createCurrency with the desired currency code.
+The app adds the new currency to the currency_list.xml file.
+Updating Currency Rates:
+
+Make a POST request to /updateCurrency with the base currency code.
+The app fetches new rates for the base currency and updates exchange_rates.xml.
+Deleting Currency:
+
+Make a DELETE request to /deleteCurrency with the currency code to be deleted.
+The app removes the currency from the currency_list.xml file.
+Viewing Exchange Rates:
+
+Visit the landing page at /.
+The app displays the current exchange rates from exchange_rates.xml.
+Note:
+
+The app uses XML files to store currency data and exchange rates.
+Ensure proper error handling for file loading and XML manipulation.
+API calls for rate updates are simulated in the provided code.
+Security measures like input validation and authentication are not addressed in this description. Consider adding them for a production environment.

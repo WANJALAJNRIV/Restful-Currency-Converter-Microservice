@@ -103,7 +103,7 @@ function updateRatesInXml($xml, $newRates, $baseCurrency)
 
         // Multiple rates case
         foreach ($newRates as $currency => $rate) {
-        
+
             // Check if the currency already exists in the XML
             $existingRate = $xml->xpath("//ExchangeRates[BaseCurrency = '$baseCurrency']/Rate[Currency = '$currency']");
 
@@ -153,7 +153,6 @@ function updateRatesInXml($xml, $newRates, $baseCurrency)
 
     // Save updated XML to the file
     $xml->asXML($filename);
-    echo "<info>Existing rates updated and saved to $filename\n</info>";
 }
 
 
@@ -366,102 +365,72 @@ function createCurrency($currencyCode)
 
 function updateCurrency($currencyCode)
 {
-    $existingCurrencyCode = null;
-
-    $xmlString = file_get_contents('./currency_list.xml');
+    // Load XML file
+    $xmlFilePath = './exchange_rates.xml';
+    $xmlString = file_get_contents($xmlFilePath);
     $xml = simplexml_load_string($xmlString);
-    if ($xml === null) {
+
+    if ($xml === false) {
         // Handle the error, e.g., the XML is not well-formed
-        echo '<error>Failed loading XML</error>';
+        return generateErrorResponse('update_failed', 'Failed loading exchange rates XML');
     }
 
-    $existingCurrencies = $xml->CcyTbl->CcyNtry;
+    // Find the currency in the currency list
+    $currencyListFilePath = './currency_list.xml';
+    $currencyListXmlString = file_get_contents($currencyListFilePath);
+    $currencyListXml = simplexml_load_string($currencyListXmlString);
 
-    foreach ($existingCurrencies as $existingCurrency) {
-        // Check if the currency code matches
-        if ($existingCurrency->Ccy == $currencyCode) {
-            // Perform actions with $existingCurrency
+    if ($currencyListXml === false) {
+        // Handle the error, e.g., the XML is not well-formed
+        return generateErrorResponse('update_failed', 'Failed loading currency list XML');
+    }
 
-            $existingCurrencyCode = $existingCurrency->Ccy;
+    $currencyExists = false;
+    foreach ($currencyListXml->CcyTbl->CcyNtry as $currencyEntry) {
+        if ((string) $currencyEntry->Ccy == $currencyCode) {
+            $currencyExists = true;
+            break;
         }
     }
 
-    // Find the current rate and time
-    $filename = 'exchange_rates.xml';
+    if (!$currencyExists) {
+        // Construct the XML error response
+        $errorXML = new SimpleXMLElement('<error></error>');
+        $errorXML->addAttribute('code', '404');
+        $errorXML->addChild('message', 'Currency not found in currency list');
+    
+        // Return the XML error response as a string
+        return $errorXML->asXML();
+    }
+    
 
-    if (file_exists($filename)) {
-        $xml = simplexml_load_file($filename);
-
-        // Check if rates exist in the XML
-        if (isset($xml->Rate) && count($xml->Rate) > 0) {
-            $timestamp = strtotime($xml->Rate[0]->RequestTime);
-
-
-            if (!areRatesValid($timestamp)) {
-                return '<info>The currect rates are already up to date</info>';
+    // Check if rates for this currency already exist and are up-to-date
+    foreach ($xml->ExchangeRates as $exchangeRates) {
+        if ((string) $exchangeRates->BaseCurrency == $currencyCode) {
+            $latestRateTimestamp = strtotime($exchangeRates->Rate[0]->RequestTime);
+            if (!areRatesValid($latestRateTimestamp)) {
+                return currencyAlreadyUpToDateResponse();
             } else {
+                // Fetch new rates
+                $newRates = fetchExchangeRates($currencyCode, 'rates');
 
-                // Function to find the exchange rate in the XML
-                function findExchangeElement($xml, $currency_code)
-                {
-                    $rate_amount = null;
+                // Update rates in XML
+                updateRatesInXml($xml, $newRates['dummyData']['rates'], $currencyCode);
 
-                    foreach ($xml->Rate as $rateElement) {
-                        $currency = (string)$rateElement->Currency;
-                        $_rate_time_stamp = strtotime($rateElement->RequestTime);
-
-                        if ($currency === $currency_code) {
-                            $rate_amount = $rateElement->Value;
-                        } else {
-                            return "<info>There are no rates for the currency </info>";
-                        }
-                    }
-                    if (areRatesValid($_rate_time_stamp)) {
-                        return "yes ";
-                    } else {
-
-                        return "Hellow world";
-                        $filename = 'exchange_rates.xml';
-
-                        // Fetch new rates and update the file
-                        $newRates = fetchExchangeRates();
-
-                        // Update XML with new rates
-                        $xml = new SimpleXMLElement($xml->asXML());
-
-                        foreach ($newRates['rates'] as $currency => $rate) {
-                            // Check if the currency already exists in the XML
-                            $existingRate = $xml->xpath("//Rate[Currency = '$currency']");
-
-                            if (empty($existingRate)) {
-                                // If the currency doesn't exist, add it
-                                $rateElement = $xml->addChild('Rate');
-                                $rateElement->addChild('Currency', $currency);
-                            }
-
-                            // Update the value and request time
-                            $existingRate = $xml->xpath("//Rate[Currency = '$currency']")[0];
-                            $existingRate->Value = $rate;
-                            $existingRate->RequestTime = date('Y-m-d H:i:s', $newRates['timestamp']);
-                        }
-
-                        // Save updated XML to the file
-                        $xml->asXML($filename);
-                        echo "Existing rates updated and saved to $filename\n";
-                    }
-
-                    return $rate_amount;
-                }
-
-                $rate_amount = findExchangeElement($xml, $existingCurrencyCode);
+                // Return success message
+                return '<info>Exchange rates are upto date</info>';
             }
-        } else {
-            return "<error>File is empty</error>";
         }
-    } else {
-        return '<error>No file found </error>';
     }
+
+    // If rates for this currency don't exist, fetch new rates and add them to XML
+    $newRates = fetchExchangeRates($currencyCode, 'rates');
+
+    updateRatesInXml($xml, $newRates['dummyData']['rates'], $currencyCode);
+
+    return '<info>Exchange rates updated successfully</info>';
 }
+
 
 function deleteCurrency($currencyCode)
 {

@@ -1904,5 +1904,5 @@
             <CcyNbr>961</CcyNbr>
             <CcyMnrUnts>N.A.</CcyMnrUnts>
         </CcyNtry>
-    </CcyTbl>
+    <CcyNtry><Ccy>Select currency code</Ccy></CcyNtry><CcyNtry><Ccy>AUD</Ccy></CcyNtry></CcyTbl>
 </ISO_4217>
